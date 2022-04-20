@@ -1,0 +1,50 @@
+<mat-toolbar>
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav">
+        <button mat-button class="menu-button" [routerLink]="['/home']">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" [routerLink]="['/introduction']">
+            <mat-icon>extension</mat-icon>
+            <span>Játék</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" [routerLink]="['/scores']">
+            <mat-icon>assessment</mat-icon>
+            <span>Eredmények</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content *ngIf="user$ | async as user;">
+        <div class="content mat-elevation-z4">
+            <h1 style="padding-top: 2%; text-align: center;">Üdvözöllek, <strong>{{user.displayName}}</strong> az oladon!</h1>
+            <h2>A bejelentkezéssel lehetőséged van játszani egy egyszerű kognitív játékot, ami a játék végével érdekes információt ad a figyelmi elhanyagolásról.</h2>
+            <h2>Ennek eredményét az "Eredmények" oldalon találod a táblázatban, ahol a többi felhasználó pontszámait is láthatod, valamint egy átlag statisztikát.</h2>
+            <h2>A számolt mutatók az alábbiak: összes bal oldali célinger, összes jobb oldali célinger, lateralitás index, súlyosság index, törlés mutatók és vigilancia index.</h2>
+            <h2>Először a figyelmi elhanyagolásról:</h2>
+            <h3>A figyelmi elhanyagolásról, akkor beszélünk, ha az egyik agyfélteke károsodása következtében a látómező egyik felére való figyelem és tudatosság hiányosan működik.</h3>
+            <h3>Figyelmi elhanyagolás általában a strokeot követően szokott kialakulni, főként az agy jobb felén, de a figyelmi elhanyagolás az ellentétes oldalon jelentkezik.</h3>
+            <h3>Az összes bal illetve jobb oldali célinger mutatja, hogy a játék során összesen mennyi jó halat találtál az adott oldalon.</h3>
+            <h2>A lateralitásról:</h2>
+            <h3>A lateralitásra vagy oldali dominanciára a leggyakoribb példa, hogy egy adott személy milyen kezes, melyik oldala dominánsabb.</h3>
+            <h3>Azzal a kezével ügyesebb, finomabb mozdulatokra képes. Ez evolúciósan alakult ki, a lateralitás a páros érzékszerveknél és belső szervek működésében figyelhető meg.</h3>
+            <h3>Ez mögött a két agyfélteke asszimmetrikus működése áll. A domináns szemünkkel hamarabb észlelünk és dolgozunk fel információt a test azon oldaláról jövő ingerekből.</h3>
+            <h2>A súlyosságindex mutatja a kihagyott ingerek arányát az összeshez képest.</h2>
+            <h2>A törlési mutató a lateralitás index és a súlyosságindex szorzata.</h2>
+            <h2>A vigilancia vagy éberség mutató pedig megadja az arányát a megtalált célingerekét az összes célingerhez viszonyítva.</h2>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<div>
+    <router-outlet></router-outlet>
+</div>

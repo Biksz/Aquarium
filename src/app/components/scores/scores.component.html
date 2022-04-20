@@ -1,0 +1,93 @@
+<mat-toolbar>
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav">
+        <button mat-button class="menu-button" [routerLink]="['/home']">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" [routerLink]="['/introduction']">
+            <mat-icon>extension</mat-icon>
+            <span>Játék</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" [routerLink]="['/scores']">
+            <mat-icon>assessment</mat-icon>
+            <span>Eredmények</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z4">
+            <div>
+                <mat-form-field appearance="standard">
+                    <input matInput placeholder="Keresés" (keyup)="dataFilter($event)">
+                  </mat-form-field>
+            </div>
+            <table mat-table [dataSource]="dataS" class="mat-elevation-z8 scores-table" matSort>
+
+                <ng-container matColumnDef="user">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef> Felhasználó </th>
+                    <td mat-cell *matCellDef="let element"> {{element.user}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="allLeft">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef> Összes bal </th>
+                    <td mat-cell *matCellDef="let element"> {{element.allLeft}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="allRight">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef> Összes jobb </th>
+                    <td mat-cell *matCellDef="let element"> {{element.allRight}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="laterialIndex">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef> Lateralitás index </th>
+                    <td mat-cell *matCellDef="let element"> {{element.laterialIndex}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="sIndex">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef> Súlyossági index </th>
+                    <td mat-cell *matCellDef="let element"> {{element.sIndex}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="tmutato">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef> Törlési mutató </th>
+                    <td mat-cell *matCellDef="let element"> {{element.tmutato}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="vigil">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef> Vigilancia index </th>
+                    <td mat-cell *matCellDef="let element"> {{element.vigil}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="date">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef> Dátum </th>
+                    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">Nincs egyező adat</td>
+                </tr>
+            </table>
+            <mat-paginator class="paginator" [pageSize]="4" [pageSizeOptions]="[4, 8, 16]" aria-label="Select page of scores" #paginator></mat-paginator>
+            <div style="height: 100px;width: 700px;margin-left: auto; margin-right: auto; padding-top: 2%;">
+                <canvas id="chart"></canvas>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<div>
+    <router-outlet></router-outlet>
+</div>

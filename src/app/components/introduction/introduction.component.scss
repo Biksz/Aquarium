@@ -1,0 +1,99 @@
+mat-toolbar{
+    color: #3F51B5;
+}
+
+mat-sidenav{
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background: #3F51B5;
+    color: whitesmoke;
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+}
+
+mat-sidenav-container{
+    height: 88vh;
+}
+
+mat-divider{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: whitesmoke;
+}
+
+.content{
+    height: 84vh;
+    margin: 16px;
+    margin-left: 32px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.introduction-button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    width: 150px;
+    height: 50px;
+    background-color: #3F51B5;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 25px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.introduction-button span{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition-duration: 0.4s;
+}
+
+.introduction-button span:after{
+    content: '\00bb';
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: -20px;
+    transition-duration: 0.4s;
+}
+
+.introduction-button:hover span:after{
+    opacity: 1;
+    right: 0;
+}
+
+.introduction-button:hover span{
+    padding-right: 25px;
+}
+
+.introduction-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    height: 250px;
+    width: 250px;
+    border-radius: 100%;
+    border: 2px solid black;
+}
+
+.menu-button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: flex-start;
+    font-size: 1rem;
+    
+    mat-icon{
+        margin-right: 8px;
+    }
+}

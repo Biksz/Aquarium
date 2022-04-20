@@ -1,0 +1,45 @@
+<mat-toolbar>
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav">
+        <button mat-button class="menu-button" [routerLink]="['/home']">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" [routerLink]="['/introduction']">
+            <mat-icon>extension</mat-icon>
+            <span>Játék</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" [routerLink]="['/scores']">
+            <mat-icon>assessment</mat-icon>
+            <span>Eredmények</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z4">
+            <h2 style="padding-top: 75px;">A játék során a képernyőn megjelenő halak közül kell kiválasztani azokat, amik megeggyeznek a lenti hal képével.</h2>
+            <h2>Próbáld minél hamarabb megtalálni az összes ilyen halat, hogy kihalászhassák őket.</h2>
+            <h2>A helyesen megtalált hal képén egy zöld pipa jelenik meg.</h2>
+            <h2>Figyelj oda, hogy csak a jó halakra kattints rá, rossz halakat ne jelölj meg!</h2>
+            <h2>Ezt a feladatot 4 szinten kell elvégezned, amik folyton nehezednek.</h2>
+            <h2>A feladatok megoldására 1-1 perc áll rendelkezésedre.</h2>
+            <img class="introduction-image" src="assets/images/gdgfish.png"/>
+            <button class="introduction-button" [routerLink]="['/game']">
+                <span style="color: aliceblue;">Játék</span>
+            </button>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<div>
+    <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,78 @@
+mat-toolbar{
+    color: #3F51B5;
+}
+
+mat-sidenav{
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background: #3F51B5;
+    color: whitesmoke;
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+}
+
+mat-sidenav-container{
+    height: 88vh;
+}
+
+mat-divider{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: whitesmoke;
+}
+
+$base-width: 900px;
+
+.content{
+    height: 84vh;
+    margin: 16px;
+    margin-left: 32px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.menu-button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: flex-start;
+    font-size: 1rem;
+    
+    mat-icon{
+        margin-right: 8px;
+    }
+}
+
+.scores-table{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1em;
+    overflow: hidden;
+    width: $base-width;
+}
+
+.scores-table thead tr{
+    padding-left: auto;
+    padding-right: auto;
+    text-align: left;
+}
+
+.scores-table th, td {
+    padding: 12px 15px;
+}
+
+.paginator{
+    width: $base-width;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+canvas{
+    height: 200px;
+    width: 200px;
+}
